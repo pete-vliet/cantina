@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Card, CardContent, CardMedia, Container, IconButton } from '@mui/material';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import Container from '@mui/material/Container';
 import './App.css';
 
-const cardStyling = {
-  display: 'flex',
-  maxHeight: '100px',
-};
-
+import AlbumCard from './components/AlbumCard';
+import AppHeader from './components/AppHeader';
 
 function App() {
   const [library, setLibrary] = useState(null);
@@ -25,40 +21,16 @@ function App() {
     });
   }, []);
 
-  const renderLibraryItem = ({ main_artist, title, image_url }) => {
-    return (
-      <div className='card-container'>
-      <Card sx={cardStyling}>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <CardContent sx={{ flex: '1 0 auto' }}>
-              <div><i>{title}</i></div>
-              <div>{main_artist}</div>
-          </CardContent>
-          <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-            <IconButton aria-label="play/pause">
-              <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-            </IconButton>
-          </Box>
-        </Box>
-        <CardMedia
-          component="img"
-          sx={{ width: 100 }}
-          image={image_url}
-          alt={`${title} album cover`}
-        />
-      </Card>
-      </div>
-    );
+  const renderAlbumCard = ({ main_artist, title, image_url }) => {
+    return <AlbumCard main_artist={main_artist} title={title} image_url={image_url} key={image_url}/>
   };
 
   return (
-    <div className="App">
-      <Container maxWidth="sm">
-        <header>
-          <h1 className='c-h1'>Cantina</h1>
-        </header>
+    <div>
+      <AppHeader />
+      <Container maxWidth="sm" className="App">
         <div className='records-list'>
-          { library && library.map(renderLibraryItem) }
+          { library && library.map(renderAlbumCard) }
         </div>
       </Container>
     </div>

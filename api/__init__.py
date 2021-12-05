@@ -25,7 +25,7 @@ def create_app(test_config=None):
         pass
 
     @app.route("/api")
-    def hello_world():
+    def dashboard():
         dashboard_payload = {
             'name': 'joe six-pack',
             'collection': [
@@ -49,6 +49,7 @@ def create_app(test_config=None):
                 }
             ]
         }
+
         return jsonify(dashboard_payload)
 
     from . import db
