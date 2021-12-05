@@ -1,0 +1,27 @@
+@import "reset_defaults.css";
+
+.App {
+  background-color: #5CDB95;
+  height: 100vh;
+  font-family: 'Noto Serif', serif;
+  text-align: center;
+}
+
+.c-h1 {
+  font-size: 40px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.card-container {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.records-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 8px;
+  margin-right: 8px;
+}
