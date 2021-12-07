@@ -9,7 +9,7 @@ function App() {
   const [library, setLibrary] = useState(null);
 
   useEffect(() => {
-    fetch('/api', {
+    fetch('/home', {
       headers: {
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
