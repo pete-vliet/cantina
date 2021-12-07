@@ -9,6 +9,11 @@ app.config.from_mapping(
 )
 
 import api.endpoints
+from api.db import db_session
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
 
 # if test_config is None:
 #     # load the instance config, if it exists, when not testing
